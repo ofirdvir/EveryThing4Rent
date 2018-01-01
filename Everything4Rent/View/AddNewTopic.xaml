@@ -1,0 +1,195 @@
+﻿<Window x:Class="Everything4Rent.View.AddTopicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Everything4Rent.View"
+        mc:Ignorable="d"     
+        Height="500"
+        Width="300"  >
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Everything4Rent;component/backround.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*" />
+            <ColumnDefinition Width="89*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontFamily="AR BLANCA"
+                   VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                   FontSize="16"
+                   Height="41"
+                   Width="108">
+            <Bold>Add New Item</Bold>
+        </TextBlock>
+        <Button x:Name="btnBack" Grid.Row="0" Grid.Column="0" Background="Transparent" BorderThickness="0" Click="btnBack_Click"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30">
+            <Image Source="pack://application:,,,/Everything4Rent;component/back.png" Height="30" Width="30"/>
+        </Button>
+
+
+        <TextBlock  Grid.Column="0" Grid.Row="3" VerticalAlignment="Top"  FontSize="15" Grid.ColumnSpan="2"  >Category</TextBlock>
+        <ComboBox x:Name="deadline"
+                  Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="32"
+                  Grid.Row="4"
+               
+                    Width="140"
+                  SelectedIndex="0" >
+            <ComboBoxItem>Deadline</ComboBoxItem>
+            <ComboBoxItem>One Day</ComboBoxItem>
+            <ComboBoxItem>Week</ComboBoxItem>
+            <ComboBoxItem>2 weeks</ComboBoxItem>
+            <ComboBoxItem>Month</ComboBoxItem>
+        </ComboBox>
+        <TextBlock  Grid.Column="0" Grid.Row="4" VerticalAlignment="Top"  TextWrapping="Wrap" FontSize="15" Height="44" >Cancellation Deadline</TextBlock>
+        <ComboBox x:Name="Category"
+                  Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  Grid.Row="3"
+                  Height="32"
+                   Width="140"
+                  SelectedIndex="0"  VerticalAlignment="Top" Grid.RowSpan="2" >
+            <ComboBoxItem>Category</ComboBoxItem>
+            <ComboBoxItem>Real Estate</ComboBoxItem>
+            <ComboBoxItem>Second Hand</ComboBoxItem>
+            <ComboBoxItem>Vehicle</ComboBoxItem>
+            <ComboBoxItem>Pet</ComboBoxItem>
+        </ComboBox>
+        <TextBlock  Grid.Row="5" HorizontalAlignment="Left" FontSize="15" TextWrapping="Wrap"  VerticalAlignment="Center"  Width="96" >Start Date</TextBlock>
+        <DatePicker x:Name="txtStartDate"  HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="17.667,0,0,8.333" Grid.Column="1" Grid.Row="5"  />
+        <TextBlock  Grid.Row="6" HorizontalAlignment="Left" FontSize="15" TextWrapping="Wrap"  VerticalAlignment="Center"  Width="96" >End Date</TextBlock>
+        <DatePicker x:Name="txtEndDate"  HorizontalAlignment="Left" Margin="18,0,0,0" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center"/>
+        <TextBlock x:Name="duration"
+                   FontSize="15"
+                   Grid.Column="0"
+                   HorizontalAlignment="Left"
+                   Height="41"
+                   TextWrapping="Wrap"
+                   Grid.Row="7"
+                 
+                   Text="Duration in Days"
+                   VerticalAlignment="Top"
+                   Width="90" Margin="0,0.333,0,0" />
+
+
+        <TextBox x:Name="txtDuration"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Height="34"
+                   BorderBrush="Black" 
+                 BorderThickness="0,0,0,1"
+                 Background="Transparent"
+                 Grid.Row="7"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 
+                  Width="140"
+                 TextChanged="topicNameText_TextChanged" />
+        <TextBlock  Grid.Column="0" Grid.Row="8" VerticalAlignment="Top"  FontSize="15" Grid.ColumnSpan="2"  >Policy</TextBlock>
+        <ComboBox x:Name="Policy"
+                  Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="32"
+                  Grid.Row="8"
+              
+                   Width="140"
+                  SelectedIndex="0"
+                  SelectionChanged="Policy_SelectionChanged">
+            <ComboBoxItem>Choose Policy</ComboBoxItem>
+            <ComboBoxItem>Safe</ComboBoxItem>
+            <ComboBoxItem>First Come First Sarved</ComboBoxItem>
+            <ComboBoxItem>Conservative</ComboBoxItem>
+        </ComboBox>
+        <TextBlock  Grid.Column="0" Grid.Row="2" VerticalAlignment="Top"  FontSize="15" Grid.ColumnSpan="2" >Action</TextBlock>
+        <ComboBox x:Name="typOfAdd"
+                  Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  Height="32"                
+                  Grid.Row="2"
+                  VerticalAlignment="Top"
+                   Width="140"
+                  SelectedIndex="0">
+            <ComboBoxItem>Type</ComboBoxItem>
+            <ComboBoxItem>Rent</ComboBoxItem>
+            <ComboBoxItem>Donation</ComboBoxItem>
+            <ComboBoxItem>Exchange</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="topicNameText"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Height="34"
+                   BorderBrush="Black" 
+                 BorderThickness="0,0,0,1"
+                 Background="Transparent"
+                 Grid.Row="1"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 
+                  Width="140"
+                 TextChanged="topicNameText_TextChanged" />
+        <TextBlock x:Name="nameOfTopic"
+                   FontSize="15"
+                   Grid.Column="0"
+                   HorizontalAlignment="Left"
+                   Height="22"
+                   
+                   Grid.Row="1"
+                   TextWrapping="Wrap"
+                   Text="Name of add"
+                   VerticalAlignment="Top"
+                   Width="90" />
+
+
+
+        <TextBlock x:Name="boxRandTreshold" Visibility="Collapsed" Grid.Column="0" Grid.Row="9" VerticalAlignment="Top"  FontSize="15" Grid.ColumnSpan="2"  >Rand Treshold</TextBlock>
+        <ComboBox x:Name="Treshold"
+                  Visibility="Collapsed"
+                  Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="32"
+                  Grid.Row="9"
+                   Width="140"
+                  SelectedIndex="0" >
+            <ComboBoxItem>Treshold</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+        </ComboBox>
+
+        <Button x:Name="AddAd" Content="Add Item" Style="{DynamicResource GlassButton}"
+                Grid.Column="0"
+                FontSize="16"
+                Grid.Row="12"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                FontFamily="AR BLANCA"
+                VerticalAlignment="Bottom"
+                Padding="8"
+                Click="AddAd_Click"
+                Height="34"
+                Width="150"  />
+    </Grid>
+</Window>

@@ -1,0 +1,79 @@
+﻿<Window x:Class="Everything4Rent.CreatePackage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Everything4Rent"
+             mc:Ignorable="d" 
+             Height="500" Width="300">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Everything4Rent;component/backround.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition  />
+            <RowDefinition  />
+            <RowDefinition  Height="100" />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--DropDown List-->
+        <TextBlock x:Name="Tile"  Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontFamily="AR BLANCA" FontSize="20" HorizontalAlignment="Center" Grid.ColumnSpan="2" >Create Package</TextBlock>
+        <Button x:Name="btnBack" Grid.Row="0" Grid.Column="0" Background="Transparent" BorderThickness="0" Click="btnBack_Click"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30">
+            <Image Source="pack://application:,,,/Everything4Rent;component/back.png" Height="30" Width="30"/>
+        </Button>
+        <TextBlock  Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Choose Item For Package</TextBlock>
+        <ComboBox x:Name="Items"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  Height="32"
+                  VerticalAlignment="Center"
+                  Width="96"
+                  SelectedIndex="0">
+      
+            <!--ComboBoxItem>Rent</>
+            <ComboBoxItem>Donation</ComboBoxItem>
+            <ComboBoxItem>Exchange</ComboBoxItem-->
+        </ComboBox>
+        <TextBlock x:Name="txtCost" Visibility="Collapsed" Grid.Row="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Package Cost</TextBlock>
+        <TextBlock x:Name="txtPatioalCost" Grid.Row="2" Visibility="Collapsed"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Patioal Cost</TextBlock>
+        <TextBlock x:Name="txtDeposit" Grid.Row="2" Visibility="Collapsed"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Deposit</TextBlock>
+        <TextBox x:Name="priceAllCatecories" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent"  Grid.Row="2" Grid.Column="1" Height="32" Width="96"></TextBox>
+        <TextBlock  Grid.Row="3" HorizontalAlignment="Left"  Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="10,0,0,0" Height="16" Width="146" >Add the Chosen to Package</TextBlock>
+        <Button x:Name="AddNewItem" Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Width="96"  Grid.Column="1" Click="AddNewItem_Click"  >Add Item</Button>
+
+        <ListBox x:Name="ChosenItemsForPackage"
+                 Margin="12,5.333,0,4.667"
+                 HorizontalAlignment="Left"
+                 Height="90"
+                VerticalAlignment="Center"
+                 Grid.Row="4"  
+                 Width="139" Background="LightGray">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock x:Name="duration" Grid.Row="5" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Duration in Days</TextBlock>
+        <TextBox x:Name="txDuration" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent"  Grid.Row="5" Grid.Column="1" Height="32" Width="96"></TextBox>
+        <TextBlock  Grid.Row="6" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="10,0,0,0" Height="16"  VerticalAlignment="Center"  Width="96" >Start Date</TextBlock>
+        <DatePicker x:Name="txtStartDate"  HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="18,0,0,0" Grid.Column="1" Grid.Row="6" />
+        <TextBlock  Grid.Row="7" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center"  Width="96" >End Date</TextBlock>
+        <DatePicker x:Name="txtEndDate"  HorizontalAlignment="Left" Margin="18,0,0,0" Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" />
+        <Button x:Name="btnCreatePackage" FontFamily="AR BLANCA" FontSize="16" Style="{DynamicResource GlassButton}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8" Height="30" Width="174" Grid.ColumnSpan="2" HorizontalAlignment="Center"  Click="CreatePackage_Click">Publish the Package!</Button>
+    </Grid>
+</Window>

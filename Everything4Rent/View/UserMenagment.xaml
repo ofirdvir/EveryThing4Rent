@@ -1,0 +1,43 @@
+﻿<Window x:Class="Everything4Rent.UserMenagment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Everything4Rent"
+        mc:Ignorable="d"
+        Height="300" Width="300">
+
+    <Grid  >
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Everything4Rent;component/backround.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="47*" />
+
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0"
+                   Grid.Row="0"
+                   FontFamily="AR BLANCA"
+                   VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                   FontSize="25" Height="34" Width="88"
+                  >
+            <Bold>Actions</Bold>
+        </TextBlock>
+
+        <Button Height="50" Width="80"  FontFamily="AR BLANCA" HorizontalAlignment="Right"  Style="{DynamicResource GlassButton}"  FontSize="14" Click="AddItem" Margin="0,14,2,0"  VerticalAlignment="Top" Grid.Row="1" >Add Item</Button>
+
+        <Button x:Name="AddPackage" Click="AddPackage_Click"  FontFamily="AR BLANCA" Style="{DynamicResource GlassButton}"  FontSize="14" Height="50" Width="100" VerticalAlignment="Top" Margin="0,14,2,0" HorizontalAlignment="Left" Grid.Row="1">Add Package</Button>
+        <Button HorizontalAlignment="Center"  FontFamily="AR BLANCA"  Style="{DynamicResource GlassButton}" FontSize="14" Height="50" Width="104" VerticalAlignment="Top" Margin="103,14,85,0" Grid.Row="1" Click="ItemOpe" >Item Operatins</Button>
+
+
+
+        <Button x:Name="LogOut" Click="LogOut_Click" BorderThickness="1"  BorderBrush="#99FFFFFF" HorizontalAlignment="Right" Background="Transparent"   Margin="0,2.5,2.5,0" Width="50" VerticalAlignment="Top"  Grid.Row="0"  >
+            <StackPanel Orientation="Vertical">
+                <Image Source="pack://application:,,,/Everything4Rent;component/logout.png" Height="40" Width="50" />
+                <TextBlock FontSize="10" FontWeight="DemiBold" FontFamily="AR BLANCA" Foreground="Black" HorizontalAlignment="Center">Log Out</TextBlock>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

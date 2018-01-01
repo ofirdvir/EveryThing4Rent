@@ -1,0 +1,135 @@
+﻿<Window x:Class="Everything4Rent.View.ShowItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Everything4Rent.View"
+        mc:Ignorable="d"
+        Title="ShowItem" Height="530" Width="320">
+    <Grid  x:Name="MyGrid" >
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Everything4Rent;component/backround.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <TextBlock x:Name="Tile"  Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontFamily="AR BLANCA" FontSize="20" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="33,20,31,6" >Item Details and Update</TextBlock>
+        <TextBlock x:Name="duration" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Item Name</TextBlock>
+
+        <TextBlock x:Name="txtName" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" ></TextBlock>
+
+        <TextBlock x:Name="ItemAction" Grid.Row="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Item Action</TextBlock>
+        <TextBlock x:Name="txtItemAction" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" ></TextBlock>
+
+        <TextBlock x:Name="ItemCost" Grid.Row="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Item Cost</TextBlock>
+        <TextBox x:Name="txtItemCost" Grid.Column="3" Grid.Row="3" TextChanged="txtItemCost_TextChanged"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="100" ></TextBox>
+
+
+        <Button x:Name="btnBack" Grid.Row="0" Grid.Column="0" Background="Transparent" BorderThickness="0" Click="btnBack_Click"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30">
+            <Image Source="pack://application:,,,/Everything4Rent;component/back.png" Height="30" Width="30"/>
+        </Button>
+
+        <Button x:Name="Update1" Grid.Row="4" Grid.Column="1" Click="Update_Click" Content="update" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30">
+        </Button>
+
+
+        <TextBlock x:Name="ItemtimeToCancel" Grid.Row="5" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Deadline</TextBlock>
+        <TextBlock x:Name="txtItemtimeToCancel" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" ></TextBlock>
+        <Button x:Name="UpdateTimeToCancel" Grid.Row="6" Grid.Column="1" Click="UpdateTimeToCancel_Click"  Content="update" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30">
+        </Button>
+
+        <ComboBox x:Name="deadline"
+                  Grid.Column="0"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="28"
+                  Grid.Row="6"
+               
+                    Width="140"
+                  SelectedIndex="0" >
+            <ComboBoxItem>Choose Deadline</ComboBoxItem>
+            <ComboBoxItem>One Day</ComboBoxItem>
+            <ComboBoxItem>Week</ComboBoxItem>
+            <ComboBoxItem>2 weeks</ComboBoxItem>
+            <ComboBoxItem>Month</ComboBoxItem>
+        </ComboBox>
+
+
+        <TextBlock x:Name="ItemPolicy" Grid.Row="7" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Policy</TextBlock>
+
+        <ComboBox x:Name="Policy"
+                  Grid.Column="0"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="28"
+                  Grid.Row="8"
+              
+                   Width="140"
+                  SelectedIndex="0"
+                  >
+            <ComboBoxItem>Choose Policy</ComboBoxItem>
+            <ComboBoxItem>Safe</ComboBoxItem>
+            <ComboBoxItem>First Come First Sarved</ComboBoxItem>
+            <ComboBoxItem>Conservative</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock x:Name="txtItemPolicy" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" ></TextBlock>
+        <Button x:Name="ItemPolicybtn" Grid.Row="8" Grid.Column="1" Click="ItemPolicybtn_Click"  Content="update" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30">
+        </Button>
+
+
+        <TextBlock x:Name="startDate" Grid.Row="9" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Start Date</TextBlock>
+        <TextBlock x:Name="txtStartDate" Grid.Column="2" Grid.Row="9" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" ></TextBlock>
+        <Button x:Name="ItemstartDatebtn" Grid.Row="10" Grid.Column="1"   Content="update" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30">
+        </Button>
+
+        <TextBlock x:Name="endDate" Grid.Row="11" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >End Date</TextBlock>
+        <TextBlock x:Name="txtEndDate" Grid.Column="2" Grid.Row="11" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" ></TextBlock>
+        <Button x:Name="ItemendDatebtn" Grid.Row="12" Grid.Column="1" Content="update" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30">
+        </Button>
+
+        <TextBlock x:Name="Treshold" Visibility="Collapsed" Grid.Row="13" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" >Treshold</TextBlock>
+        <TextBlock x:Name="txtTreshold"  Grid.Column="2" Grid.Row="13" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  Grid.ColumnSpan="2" Height="16" Width="134" ></TextBlock>
+        <Button x:Name="Tresholdbtn" Visibility="Collapsed" Grid.Row="14" Grid.Column="1" Click="ItemstartDatebtn_Click"  Content="update" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30">
+        </Button>
+
+
+        <ComboBox x:Name="Treshold1"
+                  Visibility="Collapsed"
+                  Grid.Column="0"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="28"
+                  Grid.Row="14"
+                   Width="140"
+                  SelectedIndex="0" >
+            <ComboBoxItem>Treshold</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+        </ComboBox>
+
+
+    </Grid>
+</Window>
