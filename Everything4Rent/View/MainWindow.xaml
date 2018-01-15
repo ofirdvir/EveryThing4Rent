@@ -17,13 +17,21 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
-            </Grid.RowDefinitions>
-        <TextBlock FontSize="50" FontWeight="Bold" FontFamily="AR BLANCA"  Foreground="Black" Margin="6,12,-5.667,184.333" Grid.RowSpan="2"> Welcome!</TextBlock>
-            <Button x:Name="LogIn" FontFamily="AR BLANCA" Style="{DynamicResource GlassButton}"  FontSize="22" Grid.Row="0" Height="70" Width="200" Click="LogIn_Click" Grid.Column="0"  HorizontalAlignment="Left" Margin="44,87,0,136.333" Content="Log In" Grid.RowSpan="2"/>
-            <Button x:Name="SignUp" FontFamily="AR BLANCA"  Style="{DynamicResource GlassButton}"  VerticalAlignment="Center"  FontSize="22" Grid.Row="1" Height="70" Width="200" Click="SignUp_Click" HorizontalAlignment="Right" Grid.Column="0" Margin="0,10.333,49.333,66.333">Sign Up</Button>
-            <Button Height="40" Content="Shut Down"   Click="Button_Click" FontFamily="AR BLANCA"  FontSize="16" VerticalAlignment="Bottom" Style="{DynamicResource GlassButton}" Width="100"  Margin="0,0,0,10" Grid.Row="1" BorderThickness="0" >
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+         
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="50" FontWeight="Bold" FontFamily="AR BLANCA"  Foreground="Black" Grid.Row="0" Grid.RowSpan="2"> Welcome!</TextBlock>
+            <Button x:Name="LogIn" FontFamily="AR BLANCA" Style="{DynamicResource GlassButton}"  FontSize="22" Grid.Row="1" Height="60" Width="200" Click="LogIn_Click" Grid.Column="0"  HorizontalAlignment="Center" Content="Log In" />
+            <Button x:Name="SignUp" FontFamily="AR BLANCA"  Style="{DynamicResource GlassButton}"  VerticalAlignment="Center"  FontSize="22" Grid.Row="2" Height="60" Width="200" Click="SignUp_Click" HorizontalAlignment="Center" Grid.Column="0" >Sign Up</Button>
+        <Button x:Name="Search" FontFamily="AR BLANCA"  Style="{DynamicResource GlassButton}"  VerticalAlignment="Center" Click="Search_Click" FontSize="22" Grid.Row="3" Height="60" Width="200"  HorizontalAlignment="Center" Grid.Column="0" >Search</Button>
 
-            </Button>
- 
+
+        <Button Height="40" Content="Shut Down"   Click="Button_Click" FontFamily="AR BLANCA"  FontSize="16" VerticalAlignment="Bottom" Style="{DynamicResource GlassButton}" Width="100"  Margin="0,0,0,10" Grid.Row="6" BorderThickness="0" >
+        </Button>
+   
+
     </Grid>
 </Window>

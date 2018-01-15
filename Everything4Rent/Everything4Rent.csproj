@@ -64,6 +64,7 @@
     <Compile Include="Model\DonationItem.cs" />
     <Compile Include="Model\ExchangeItem.cs" />
     <Compile Include="Model\IItem.cs" />
+    <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\RentItem.cs" />
     <Compile Include="View\AddNewTopic.xaml.cs">
       <DependentUpon>AddNewTopic.xaml</DependentUpon>
@@ -75,11 +76,26 @@
     <Compile Include="View\Ad.xaml.cs">
       <DependentUpon>Ad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DefaultSearchResults.xaml.cs">
+      <DependentUpon>DefaultSearchResults.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Item_Operations.xaml.cs">
       <DependentUpon>Item_Operations.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PackacgeMain.xaml.cs">
       <DependentUpon>PackacgeMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\petSearch.xaml.cs">
+      <DependentUpon>petSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RealEstateSearch.xaml.cs">
+      <DependentUpon>RealEstateSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchMain.xaml.cs">
+      <DependentUpon>SearchMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SecondHandSearch.xaml.cs">
+      <DependentUpon>SecondHandSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ShowItem.xaml.cs">
       <DependentUpon>ShowItem.xaml</DependentUpon>
@@ -88,8 +104,14 @@
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs" />
+    <Compile Include="View\TradeAction.xaml.cs">
+      <DependentUpon>TradeAction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserMenagment.xaml.cs">
       <DependentUpon>UserMenagment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VehicleSearch.xaml.cs">
+      <DependentUpon>VehicleSearch.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddNewTopic.xaml">
       <SubType>Designer</SubType>
@@ -100,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Ad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DefaultSearchResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +160,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\petSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RealEstateSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SearchMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SecondHandSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ShowItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,7 +184,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\TradeAction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\UserMenagment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VehicleSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

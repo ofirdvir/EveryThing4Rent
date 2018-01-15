@@ -65,7 +65,10 @@ namespace Everything4Rent
             int userID;
 
             if (reader.FieldCount > 0 && Int32.TryParse(reader[0].ToString(), out userID))
+            {
                 _controller.currentUserId = userID;
+                _controller.userLogedIn = true;
+            }
             else
             {
                 //throw message 

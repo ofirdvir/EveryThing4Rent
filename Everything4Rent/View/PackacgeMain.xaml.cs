@@ -49,6 +49,15 @@ namespace Everything4Rent.View
 
         private void AddPackage_Click(object sender, RoutedEventArgs e)
         {
+
+
+            if (!controller.checkIfnameUnique(topicNameText.Text))
+
+            {
+                MessageBox.Show("Name already exist! please choose another name", "Error");
+                return;
+            }
+
             String typOfAdd1 = ((ComboBoxItem)typOfAdd.SelectedItem).Content as string;
             if (topicNameText.Text=="")
             {
@@ -57,7 +66,7 @@ namespace Everything4Rent.View
             }
             if (typOfAdd1 == "Type")
                 {
-                MessageBox.Show("Please Insert Policy!!", "Error");
+                MessageBox.Show("Please Insert Action!!", "Error");
                 return;
             }
             string treshold="";
@@ -67,7 +76,7 @@ namespace Everything4Rent.View
                 treshold = ((ComboBoxItem)tresh.SelectedItem).Content as string;
 
 
-            CreatePackage win2 = new CreatePackage(controller, typOfAdd1, ((ComboBoxItem)Policy.SelectedItem).Content as string, treshold, ((ComboBoxItem)deadline.SelectedItem).Content as string);
+            CreatePackage win2 = new CreatePackage(controller, typOfAdd1, ((ComboBoxItem)Policy.SelectedItem).Content as string, treshold, ((ComboBoxItem)deadline.SelectedItem).Content as string, topicNameText.Text);
 
             if (win2.checkIfToOpen())
             {

@@ -41,13 +41,12 @@ namespace Everything4Rent
             if (ans)
             {
                 sendEmail();
-                UserMenagment win2 = new UserMenagment(_controller);
+                MainWindow win2 = new MainWindow();
                 win2.Show();
                 Close();
             }
             
         }
-
         private void sendEmail()
         {
             string userMail = txtEmail.Text;
@@ -99,6 +98,7 @@ namespace Everything4Rent
         private bool checkIfValidAndAddToDB()
         {
             //  שם מלא, גיל, מין, כתובת מייל, פרטי חשבון PAY PAL. 
+
             int age = 0;
             if (txtLastName.Text == "" || txtUserName.Text == "" || txtPassword.Password == "" || txtFirstName.Text == "" || txtAge.Text == "" || ((ComboBoxItem)boxGender.SelectedItem).Content as string == "" || txtEmail.Text == "" || txtPayPalUseName.Text == "" || txtPayPalPassword.Password == "")
             {
@@ -123,6 +123,11 @@ namespace Everything4Rent
                 txtUserName.BorderThickness = new Thickness(1);
                 txtUserName.BorderBrush = new SolidColorBrush(Colors.Red);
 
+                return false;
+            }
+            else if(!_controller.checkIfUsernameUnique(txtUserName.Text))
+            {
+                MessageBox.Show("This user name is already exist in the system", "Error");
                 return false;
             }
             else if (!MailValidaion(txtEmail.Text))
@@ -162,7 +167,7 @@ namespace Everything4Rent
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Item_Operations win2 = new Item_Operations(_controller);
+            MainWindow win2 = new MainWindow();
             win2.Show();
             Close();
         }

@@ -34,12 +34,14 @@ namespace Everything4Rent
         public string ConnectionString { get; private set; }
 
         string _action;
-        public CreatePackage(Controller controller, string action, string policy, string trash, string deadline)
+        string _name;
+        public CreatePackage(Controller controller, string action, string policy, string trash, string deadline,string name)
         {
             this.controller = controller;
             _action = action;
             _policy = policy;
             _trash = trash;
+            _name = name;
             _deadline = deadline;
 
             InitializeComponent();
@@ -204,7 +206,9 @@ namespace Everything4Rent
             string _StartDate = txtStartDate.SelectedDate.Value.Date.ToShortDateString();
             string _EndDate = txtEndDate.SelectedDate.Value.Date.ToShortDateString();
             string _duration = txDuration.Text;
-            string query = string.Format("Insert Into Package\nValues({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
+
+
+            string query = string.Format("Insert Into Package\nValues({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}',{9},'{10}')",
                 PackageId,
                 itemsid,
                  _deadline,
@@ -213,7 +217,10 @@ namespace Everything4Rent
                 _EndDate,
                 _duration,
                 _trash,
-                _action
+                _action,
+                controller.currentUserId,
+                _name
+
                 );
 
             writeToDB(query);
@@ -238,9 +245,11 @@ namespace Everything4Rent
         }
         private void writeToSpecificPackageTable(string TableName, int PackageId, string cost)
         {
-            string query = string.Format("Insert Into " + TableName + "\nValues({0},'{1}')",
+            string query = string.Format("Insert Into " + TableName + "\nValues({0},{1},{2})",
             PackageId,
-             cost
+             cost,
+             1
+
             );
             writeToDB(query);
         }

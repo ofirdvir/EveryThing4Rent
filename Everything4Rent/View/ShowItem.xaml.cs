@@ -284,7 +284,8 @@ namespace Everything4Rent.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            if (!int.TryParse(txtItemCost.Text, out var n))
+            int n;                                      
+            if (!int.TryParse(txtItemCost.Text, out n))
             {
                 MessageBox.Show("Cost is not valid", "Error");
                 return;

@@ -1,0 +1,44 @@
+﻿<Window x:Class="Everything4Rent.View.TradeAction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Everything4Rent.View"
+        mc:Ignorable="d"
+        Title="Trade Action" Height="200" Width="300">
+    <Grid x:Name="MyGrid"  >
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Everything4Rent;component/backround.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="40" />
+
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Grid.ColumnSpan="2"> Search</TextBlock>
+
+        <TextBlock x:Name="ItemToTrade"  Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="41" Width="134"  TextWrapping="Wrap" Margin="0,24.667,0,39.667" Grid.RowSpan="2">Choose Item From Your Items to Exchange</TextBlock>
+
+        <ComboBox x:Name="ItemsToBorrowCombo"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  Height="32"
+                  VerticalAlignment="Center"
+                  Width="96"
+                  SelectedIndex="0" Margin="25.333,23.667,25.333,9.667">
+        </ComboBox>
+        <Button x:Name="Submit" Click="Submit_Click" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"  Grid.ColumnSpan="2"  Content="Submit" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0"   VerticalAlignment="Top" Width="150" Height="30">
+        </Button>
+
+
+
+
+    </Grid>
+</Window>

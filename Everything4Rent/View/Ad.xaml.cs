@@ -28,13 +28,13 @@ namespace Everything4Rent.View
         string _StartDate;
         string _EndDate;
         string _duration;
-        
-        string _treshold="";
+
+        string _treshold = "";
         string descritopn = "";
         Controller _controller;
- 
 
-        public Ad(Controller controller, string Name, string Action, string Category, string policy ,string treshold,string deadline,string startDate,string endDate, string duation)
+
+        public Ad(Controller controller, string Name, string Action, string Category, string policy, string treshold, string deadline, string startDate, string endDate, string duation)
         {
             InitializeComponent();
             _Category = Category;
@@ -43,7 +43,7 @@ namespace Everything4Rent.View
             _name = Name;
             _Deadline = deadline;
             _Policy = policy;
- 
+
             _StartDate = startDate;
             _EndDate = endDate;
             _duration = duation;
@@ -89,7 +89,7 @@ namespace Everything4Rent.View
             else if (_Category == "Vehicle")
             {
                 VehicleGrid.Visibility = Visibility.Visible;
-                myWindow.Height = myWindow.Height-150;
+                myWindow.Height = myWindow.Height - 150;
 
             }
             else if (_Category == "Second Hand")
@@ -103,7 +103,7 @@ namespace Everything4Rent.View
                 myWindow.Height = myWindow.Height - 115;
             }
         }
-       
+
         private void Publish_Click(object sender, RoutedEventArgs e)
         {
             bool ans = checkValitaion();
@@ -112,9 +112,9 @@ namespace Everything4Rent.View
             if (Int32.TryParse(getItemId(), out numberId))
                 numberId++;
             string Id = numberId.ToString();
-          
-              
-            if(ans)
+
+
+            if (ans)
             {
 
                 if (_Action == "Donation")
@@ -133,8 +133,8 @@ namespace Everything4Rent.View
                 _controller.AddItemToUser(item);
                 UpdateItemInDB(item);
 
-                MessageBox.Show("Item added succesfully!");
-                Close();
+              //  MessageBox.Show("Item added succesfully!");
+               // Close();
             }
         }
 
@@ -162,14 +162,15 @@ namespace Everything4Rent.View
             }
             writeNewItemToItemTable(item);
             writeToPackageTable(item);
-            
+
         }
 
-        private void writeToSpecificPackageTable(string TableName , int PackageId, string cost)
+        private void writeToSpecificPackageTable(string TableName, int PackageId, string cost)
         {
-            string query = string.Format("Insert Into "+ TableName+"\nValues({0},'{1}')",
+            string query = string.Format("Insert Into " + TableName + "\nValues({0},'{1}',{2})",
               PackageId,
-               cost
+               cost,
+               0
               );
             writeToDB(query);
         }
@@ -180,7 +181,7 @@ namespace Everything4Rent.View
             if (Int32.TryParse(getPackageId(), out PackageId))
                 PackageId++;
 
-            string query = string.Format("Insert Into Package\nValues({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
+            string query = string.Format("Insert Into Package\nValues({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}',{9} ,'{10}')",
                 PackageId,
                 item.ID,
                  _Deadline,
@@ -189,11 +190,15 @@ namespace Everything4Rent.View
                 _EndDate,
                 _duration,
                 _treshold,
-                _Action
-            
+                _Action,
+                _controller.currentUserId,
+                _name
+
+
+
                 );
             writeToDB(query);
-           
+
             switch (_Action)
             {
                 case "Donation":
@@ -206,10 +211,10 @@ namespace Everything4Rent.View
                     writeToSpecificPackageTable("Trade_package", PackageId, txtPatialPrice.Text);
                     break;
                 default:
-                    writeToSpecificPackageTable("Renting_package", PackageId,"0");
+                    writeToSpecificPackageTable("Renting_package", PackageId, "0");
                     break;
             }
-            
+
         }
 
         private string getPackageId()
@@ -218,23 +223,28 @@ namespace Everything4Rent.View
         }
 
         private void writeForSecondHand(IItem item)
-        {          
+        {
             string query = string.Format("Insert Into Item_SecondHand\nValues({0},'{1}','{2}','{3}')",
             item.ID,
               txtpurchase.Text,
-              txtItemQuality.Text,              
+             ((ComboBoxItem)txtItemQuality.SelectedItem).Content as string,
               ((ComboBoxItem)typType.SelectedItem).Content as string
                );
             writeToDB(query);
+            MessageBox.Show("Item added succesfully!");
         }
 
         private void writeForVehicle(IItem item)
         {
-            
+            if(!checkIfViecleValid(txtItemYear.Text, txtEngineVolume.Text, txtKM.Text))
+            {
+                return;
+            }
             string Gear = ((ComboBoxItem)typGearbox1.SelectedItem).Content as string;
             string volum = txtEngineVolume.Text;
             string color = txtColor.Text;
             string km = txtKM.Text;
+          
             string query = string.Format("Insert Into Item_Vehicle\nValues({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
                item.ID,
                txtmanufacturer.Text,
@@ -246,6 +256,33 @@ namespace Everything4Rent.View
               km
                );
             writeToDB(query);
+            MessageBox.Show("Item added succesfully!");
+        }
+        private bool checkIfViecleValid(string year, string volume, string km)
+        {
+            int x, y, z;
+            if (!int.TryParse(km, out x))
+            {
+                MessageBox.Show("Please Insert Valid km", "Error");
+                return false;
+            }
+            if (!String.IsNullOrEmpty(volume))
+            {
+                if (!int.TryParse(volume, out y))
+                {
+                    MessageBox.Show("Please Insert Valid Volume", "Error");
+                    return false;
+                }
+            }
+            if (!String.IsNullOrEmpty(year))
+            {
+                if (!int.TryParse(year, out z))
+                {
+                    MessageBox.Show("Please Insert Valid Year", "Error");
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void writeForRealEstate(IItem item)
@@ -262,21 +299,23 @@ namespace Everything4Rent.View
               txtFacilityDesc.Text,
               type
                );
-       
+
 
             writeToDB(query);
+            MessageBox.Show("Item added succesfully!");
         }
 
         private void writeNewItemToItemTable(IItem item)
         {
             //need to calculate from combo boxes + add to item interface and implement at each item
-           
-            string query = string.Format("Insert Into Items\nValues({0},{1},{2},'{3}','{4}')",
+
+            string query = string.Format("Insert Into Items\nValues({0},{1},{2},'{3}','{4}','{5}')",
               item.ID,
               _controller.currentUserId,
                0,
               _name,
-              _Action
+              _Action,
+              _Category
               );
             writeToDB(query);
         }
@@ -291,6 +330,7 @@ namespace Everything4Rent.View
               txtPetAge.Text
               );
             writeToDB(query);
+            MessageBox.Show("Item added succesfully!");
         }
 
         private void writeToDB(string query)
@@ -312,7 +352,7 @@ namespace Everything4Rent.View
         private bool checkValitaion()
         {
             bool ans = false;
-         
+
 
             if (_Category == "Pet")
             {
@@ -358,6 +398,7 @@ namespace Everything4Rent.View
             }
             else if (_Category == "Vehicle")
             {
+              
                 if (txtmanufacturer.Text != "" && txtItemModel.Text != "" && txtItemYear.Text != "")
                 {
                     ans = true;
@@ -377,7 +418,7 @@ namespace Everything4Rent.View
 
             else if (_Category == "Real Estate")
             {
-                int n,s;
+                int n, s;
                 if (!int.TryParse(txtSize.Text, out n))
                 {
                     MessageBox.Show("size is not valid", "Error");
@@ -409,12 +450,13 @@ namespace Everything4Rent.View
             if (_Action == "Rent" && ans)
             {
                 int n;
-               // string policy = ((ComboBoxItem)Boxpolicy.SelectedItem).Content as string;
-                if (!int.TryParse(txtCost.Text, out n)){
+                // string policy = ((ComboBoxItem)Boxpolicy.SelectedItem).Content as string;
+                if (!int.TryParse(txtCost.Text, out n))
+                {
                     MessageBox.Show("Cost is not valid", "Error");
                     return false;
                 }
-                if (txtCost.Text != ""  )/// checks if there is policy&cost
+                if (txtCost.Text != "")/// checks if there is policy&cost
                     ans = true;
                 else
                 {

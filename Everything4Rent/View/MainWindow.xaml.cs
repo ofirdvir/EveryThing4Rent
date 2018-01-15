@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Everything4Rent.Model;
+using Everything4Rent.View;
+using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.IO;
@@ -25,13 +27,14 @@ namespace Everything4Rent
         Controller conteroller;
         Dictionary<int, User> allUserDb = new Dictionary<int, User>();
         Dictionary<string, string> allUserNameAndPassword = new Dictionary<string, string>();
+       
         public MainWindow()
         {
 
             /// read this from DB!
             ///
             connectToDB();
-
+            
             conteroller = new Controller(allUserDb, allUserNameAndPassword);
             InitializeComponent();
 
@@ -96,6 +99,13 @@ namespace Everything4Rent
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            SearchMain search = new SearchMain(conteroller);
+            search.Show();
+           // Close();
         }
     }
 }

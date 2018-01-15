@@ -19,7 +19,7 @@ namespace Everything4Rent.View
     /// <summary>
     /// Interaction logic for Item_Operations.xaml
     /// </summary>
-    public partial class Item_Operations : Window
+    public partial class Item_Operations : Window 
     {
         Controller control;
         List<string> UsersItem = new List<string>();

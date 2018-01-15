@@ -59,5 +59,18 @@ namespace Everything4Rent
             Item_Operations w1 = new Item_Operations(controller);
             w1.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, RoutedEventArgs e)
+        {
+            SearchMain w1 = new SearchMain(controller);
+            
+            w1.Show();
+
+        }
     }
 }

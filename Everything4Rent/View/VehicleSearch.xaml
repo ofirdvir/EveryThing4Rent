@@ -1,0 +1,62 @@
+﻿<Window x:Class="Everything4Rent.View.VehicleSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Everything4Rent.View"
+        mc:Ignorable="d"
+        Title="VehicleSearch" Height="300" Width="300">
+    <Grid x:Name="MyGrid"  >
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Everything4Rent;component/backround.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+           
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" FontSize="20" Grid.ColumnSpan="2" FontWeight="Bold" VerticalAlignment="Center"> Vehicle Search</TextBlock>
+      
+        <!--מחיר לפי קטגוריה-->
+        <TextBlock x:Name="txtCost" Visibility="Collapsed" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134">Max Cost</TextBlock>
+        <TextBlock x:Name="txtPatioalCost" Grid.Row="1" Visibility="Collapsed"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Max Patioal Cost</TextBlock>
+        <TextBlock x:Name="txtDeposit" Grid.Row="1" Visibility="Collapsed"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Max Deposit</TextBlock>
+        <TextBox x:Name="priceAllCatecories" Text="1000" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent"  Grid.Row="1" Grid.Column="1" Height="32" Width="120" TextAlignment="Center"></TextBox>
+
+
+
+        <!-- יצרן-->
+        <TextBlock x:Name="txtManu" Grid.Row="2"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Manufacture</TextBlock>
+        <TextBox x:Name="Manu" BorderBrush="Black" BorderThickness="0,0,0,1"  Background="Transparent"  Grid.Row="2" Grid.Column="1" Height="32" TextAlignment="Center" Width="120" Text="Toyota"></TextBox>
+
+        <!-- model-->
+        <TextBlock x:Name="txtModel" Grid.Row="3"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Model</TextBlock>
+        <TextBox x:Name="Model" BorderBrush="Black" BorderThickness="0,0,0,1"  Background="Transparent"  Grid.Row="3" Grid.Column="1" Height="32" TextAlignment="Center" Width="120" Text="Corolla"></TextBox>
+
+     
+
+        <!-- שנה-->
+        <TextBlock  Grid.Row="4"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Year</TextBlock>
+        <TextBox x:Name="year" BorderBrush="Black" BorderThickness="0,0,0,1"  Background="Transparent"  Grid.Row="4" Grid.Column="1" Height="32" TextAlignment="Center" Width="120" Text="2010"></TextBox>
+        
+        <!-- גיק-->
+        <TextBlock  Grid.Row="5"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Grid.ColumnSpan="2" Height="16" Width="134" >Gir</TextBlock>
+        <ComboBox x:Name="gir" Grid.Row="5" Grid.Column="1" Height="30" SelectedIndex="0" Width="120" >
+            <ComboBoxItem>Automat</ComboBoxItem>
+            <ComboBoxItem>Manual</ComboBoxItem>
+        </ComboBox>
+
+        <Button x:Name="Search" Click="Search_Click" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"  Grid.ColumnSpan="2"  Content="Search" Foreground="White" FontSize="12" Style="{DynamicResource GlassButton}" BorderThickness="0"   VerticalAlignment="Top" Width="150" Height="30">
+        </Button>
+
+    </Grid>
+</Window>

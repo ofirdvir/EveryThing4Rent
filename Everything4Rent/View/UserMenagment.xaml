@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="28*" />
             <RowDefinition Height="47*" />
-
+            <RowDefinition Height="47*" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0"
                    Grid.Row="0"
@@ -30,6 +30,9 @@
 
         <Button x:Name="AddPackage" Click="AddPackage_Click"  FontFamily="AR BLANCA" Style="{DynamicResource GlassButton}"  FontSize="14" Height="50" Width="100" VerticalAlignment="Top" Margin="0,14,2,0" HorizontalAlignment="Left" Grid.Row="1">Add Package</Button>
         <Button HorizontalAlignment="Center"  FontFamily="AR BLANCA"  Style="{DynamicResource GlassButton}" FontSize="14" Height="50" Width="104" VerticalAlignment="Top" Margin="103,14,85,0" Grid.Row="1" Click="ItemOpe" >Item Operatins</Button>
+    
+        <Button x:Name="search" Click="search_Click" HorizontalAlignment="Center"  FontFamily="AR BLANCA"  Style="{DynamicResource GlassButton}" FontSize="14" Height="50" Width="104" VerticalAlignment="Top" Margin="103,14,85,0" Grid.Row="2" >Search Item</Button>
+
 
 
 
